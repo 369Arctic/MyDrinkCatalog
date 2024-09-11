@@ -1,0 +1,35 @@
+﻿@model DrinkCatalog.Data.Models.Brand
+
+<div class="card shadow border-0 mt-4">
+    <div class="card-header bg-info-subtle  py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-primary py-2">Обновить бренд</h2>
+            </div>
+        </div>
+    </div>
+
+    <form method="post">
+        <input asp-for="BrandId" hidden></input>
+        <div class="border p-3 mt-4">
+            <div class="mb-3 row">
+                <label asp-for="Name" class="p-1 text-dark"></label>
+                <input asp-for="Name" class="form-control"></input>
+                <span asp-validation-for="Name" class="text-bg-secondary"></span>
+            </div>
+            <div class="d-flex justify-content-between">
+                <a asp-controller="Brand" asp-action="Index" class="btn btn-warning w-75 form-control">
+                    Назад
+                </a>
+                <button type="submit" class="btn btn-success w-75 form-control"> Обновить </button>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

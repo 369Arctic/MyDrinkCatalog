@@ -1,0 +1,27 @@
+.drink-catalog {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.drink-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+    .drink-item h3 {
+        margin: 0;
+        font-size: 1.5em;
+    }
+
+    .drink-item p {
+        margin: 10px 0;
+        font-size: 1.2em;
+    }
+
+    .drink-item button {
+        padding: 5px 10px;
+        font-size: 1em;
+    }
+

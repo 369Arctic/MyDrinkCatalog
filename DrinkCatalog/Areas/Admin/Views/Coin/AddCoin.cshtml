@@ -1,0 +1,17 @@
+﻿@model DrinkCatalog.Data.Models.Coin
+
+<h2>Добавить новую монету</h2>
+
+<form asp-action="AddCoin" method="post">
+    <div class="form-group">
+        <label for="denomination">Номинал монеты:</label>
+        <input type="number" class="form-control" asp-for="Denomination" min="1" max="10" />
+        <span asp-validation-for="Denomination" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="count">Количество:</label>
+        <input type="number" class="form-control" asp-for="Count" />
+        <span asp-validation-for="Count" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Добавить</button>
+</form>

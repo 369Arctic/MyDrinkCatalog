@@ -1,0 +1,176 @@
+﻿@model IEnumerable<DrinkCatalog.Data.Models.Drink>
+@{
+    ViewBag.Title = "Газированные напитки";
+    var minPrice = ViewBag.MinPrice;
+    var maxPrice = ViewBag.MaxPrice;
+    var cartItemCount = ViewBag.CartItemCount; // Получаем количество товаров в корзине
+}
+
+<div class="container mt-4">
+    <div class="text-center">
+        <h2>Газированные напитки</h2>
+    </div>
+
+    <div class="row">
+        <!-- Фильтры -->
+        <div class="col-md-3 mt-3">
+            <h4>Фильтры</h4>
+            <form id="filterForm" method="get">
+                <div class="mb-3">
+                    <label for="brandSelect" class="form-label">Бренд</label>
+                    <select class="form-select" id="brandSelect" name="brand">
+                        <option value="">Все бренды</option>
+                        @foreach (var brand in ViewBag.Brands)
+                        {
+                            <option value="@brand.Name">@brand.Name</option>
+                        }
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="priceRange" class="form-label">Ценовой диапазон</label>
+                    <div id="priceRange"></div>
+                    <p id="priceRangeValue">
+                        Минимум: <span id="priceMin">@Context.Request.Query["minPrice"]</span> руб. /
+                        Максимум: <span id="priceMax">@Context.Request.Query["maxPrice"]</span> руб.
+                    </p>
+                    <input type="hidden" id="minPrice" name="minPrice" value="@Context.Request.Query["minPrice"]">
+                    <input type="hidden" id="maxPrice" name="maxPrice" value="@Context.Request.Query["maxPrice"]">
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Применить</button>
+                <div class="mb-3 mt-3">
+                    @if ((int)cartItemCount > 0)
+                    {
+                        <a id="cartButton" href="@Url.Action("Index", "ShoppingCart")" class="btn btn-success w-75">
+                            Выбрано: <span id="cartItemCount">@((int)cartItemCount)</span>
+                        </a>
+                    }
+                    else
+                    {
+                        <a id="cartButton" href="@Url.Action("Index", "ShoppingCart")" class="btn btn-success disabled w-75">
+                            Выбрано: <span id="cartItemCount">@((int)cartItemCount)</span>
+                        </a>
+                    }
+                </div>
+            </form>
+        </div>
+
+
+        <!-- Каталог напитков -->
+        <div class="col-md-9 mt-3">
+            <h4>Каталог напитков</h4>
+            <div class="row clearfix">
+                @foreach (var drink in Model.OrderBy(d => d.Price))  @* Сортировка по цене *@
+                {
+                    <div class="col-md-3 mb-4 d-flex">
+                        <div class="card h-100">
+                            <img src="@drink.ImageUrl" class="card-img-top" alt="@drink.Name">
+                            <div class="card-body">
+                                <h5 class="card-title">@drink.Name</h5>
+                                <p class="card-text">@drink.Price руб.</p>
+                                @if (drink.Quantity > 0)
+                                {
+                                    <button class="btn btn-success btn-add-cart" data-id="@drink.DrinkId">Выбрать</button>
+                                }
+                                else
+                                {
+                                    <button class="btn btn-secondary" disabled>Закончился</button>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Получаем текущие значения минимальной и максимальной цены
+            const minPrice = parseFloat('@ViewBag.MinPrice');
+            const maxPrice = parseFloat('@ViewBag.MaxPrice');
+            const initialMinPrice = parseFloat('@Context.Request.Query["minPrice"]') || minPrice;
+            const initialMaxPrice = parseFloat('@Context.Request.Query["maxPrice"]') || maxPrice;
+
+            // Создание ползунка
+            $("#priceRange").slider({
+                range: true,
+                min: minPrice,
+                max: maxPrice,
+                values: [initialMinPrice, initialMaxPrice],
+                slide: function (event, ui) {
+                    $("#priceMin").text(ui.values[0]);
+                    $("#priceMax").text(ui.values[1]);
+                }
+            });
+
+            // Отображение текущего значения ползунка
+            $("#priceMin").text($("#priceRange").slider("values", 0));
+            $("#priceMax").text($("#priceRange").slider("values", 1));
+
+            // Изменение значений ползунка при изменении бренда
+            $("#brandSelect").change(function () {
+                const brand = $(this).val();
+                $.get('@Url.Action("GetPriceRange", "Home")', { brand: brand }, function (data) {
+                    // Обновление ползунка на основе новых данных
+                    const newMinPrice = parseFloat(data.minPrice);
+                    const newMaxPrice = parseFloat(data.maxPrice);
+
+                    $("#priceRange").slider("option", "min", newMinPrice);
+                    $("#priceRange").slider("option", "max", newMaxPrice);
+                    $("#priceRange").slider("values", [newMinPrice, newMaxPrice]);
+                    $("#priceMin").text(newMinPrice);
+                    $("#priceMax").text(newMaxPrice);
+                });
+            });
+
+            // Обработка отправки формы
+            $("#filterForm").submit(function (event) {
+                event.preventDefault();
+
+                const minPrice = $("#priceRange").slider("values", 0);
+                const maxPrice = $("#priceRange").slider("values", 1);
+
+                // Обновляем скрытые поля
+                $("#minPrice").val(minPrice);
+                $("#maxPrice").val(maxPrice);
+
+                // Отправляем форму с новыми значениями
+                $(this).off('submit').submit();
+            });
+
+            // Обработка добавления товара в корзину
+            $('.btn-add-cart').on('click', function () {
+                var drinkId = $(this).data('id');
+                const cartButton = $('#cartButton');
+
+                $.ajax({
+                    url: '@Url.Action("AddCart", "Home")',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ DrinkId: drinkId }),
+                    success: function (response) {
+                        if (response.success) {
+                            // Обновляем количество товаров в корзине
+                            $('#cartItemCount').text(response.cartItemCount);
+
+                            // Если в корзине есть товары, активируем кнопку
+                            if (response.cartItemCount > 0) {
+                                cartButton.removeClass('disabled');
+                            } else {
+                                cartButton.addClass('disabled');
+                            }
+                        } else {
+                            alert(response.message);
+                        }
+                    }
+                });
+            });
+
+
+        });
+    </script>
+}

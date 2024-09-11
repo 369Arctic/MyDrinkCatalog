@@ -1,0 +1,19 @@
+﻿@model DrinkCatalog.Data.Models.ViewModels.PaymentViewModel
+
+<div class="container text-center mt-4">
+    <h2>Спасибо за покупку!</h2>
+    <p>Пожалуйста, возьмите вашу сдачу: <span style="color: green;">@Model.Change.Sum(x => x.Key * x.Value) руб.</span></p>
+
+    <h4>Ваши монеты:</h4>
+    <div class="row justify-content-center">
+        @foreach (var item in Model.Change.OrderByDescending(x => x.Key))
+        {
+            <div class="col-3 text-center mb-4">
+                <img src="@Url.Content($"~/Img/Coins/{item.Key}.png")" alt="Монета @item.Key руб." class="img-fluid rounded-circle" style="max-width: 100px;">
+                <p>@item.Value шт.</p>
+            </div>
+        }
+    </div>
+
+    <a href="@Url.Action("Index", "Home")" class="btn btn-warning mt-3">Каталог напитков</a>
+</div>

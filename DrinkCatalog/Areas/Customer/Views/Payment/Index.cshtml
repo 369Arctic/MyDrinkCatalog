@@ -1,0 +1,128 @@
+﻿@model DrinkCatalog.Data.Models.ViewModels.PaymentViewModel
+
+<div class="container mt-4">
+    <h2>Оплата</h2>
+
+    @if (!string.IsNullOrEmpty(Model.Message))
+    {
+        <div class="alert alert-info">@Model.Message</div>
+    }
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Номинал монеты</th>
+                <th>Количество</th>
+                <th>Сумма</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var coin in Model.Coins)
+            {
+                <tr>
+                    <td>
+                        <img src="@Url.Content($"~/Img/Coins/{coin.Denomination}.png")" alt="@coin.Denomination руб." style="width: 50px;" />
+                        <span>@coin.Denomination руб.</span>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-sm btn-secondary" onclick="decrementCoin(@coin.Denomination)">-</button>
+                        <input type="number" id="coin-@coin.Denomination" class="form-control d-inline text-center"
+                               style="width: 80px;" value="0" min="0" oninput="validateCoinInput(this)" onchange="updateCoinCount(@coin.Denomination, this.value)" />
+                        <button type="button" class="btn btn-sm btn-secondary" onclick="incrementCoin(@coin.Denomination)">+</button>
+                    </td>
+                    <td id="sum-@coin.Denomination">0 руб.</td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2" class="text-right"><strong>Итоговая сумма:</strong></td>
+                <td><strong>@Model.CartTotal руб.</strong></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-right"><strong>Внесенная сумма:</strong></td>
+                <td><strong id="insertedAmount" style="color:red;">0 руб.</strong></td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <form method="post" asp-action="ProcessPayment">
+        <input type="hidden" id="insertedAmountInput" name="InsertedAmount" value="0" />
+        <input type="hidden" id="coinCountsInput" name="CoinCounts" value='{}' />
+        <input type="hidden" name="CartTotal" value="@Model.CartTotal" />
+        <button type="submit" class="btn btn-success mt-3" id="payButton" disabled>Оплатить</button>
+    </form>
+    <a href="@Url.Action("Index", "ShoppingCart")" class="btn btn-primary mt-3">Вернуться</a>
+</div>
+
+<style>
+    /* Необходимо для сокрытия стрелок для увеличения/уменьшения товара в поле */
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+</style>
+
+@section Scripts {
+    <script>
+        var insertedAmount = 0;
+        var coinValues = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Coins.Select(c => c.Denomination)));
+
+        function updateCoinCount(denomination, value) {
+            if (value < 0) value = 0;
+
+            // Обновляем сумму монет для конкретного номинала
+            var sumElement = document.getElementById('sum-' + denomination);
+            var sum = denomination * value;
+            sumElement.innerText = sum + ' руб.';
+
+            updateInsertedAmount();
+        }
+
+        function updateInsertedAmount() {
+            var total = 0;
+            var coinCounts = {};
+            coinValues.forEach(function (value) {
+                var input = document.getElementById('coin-' + value);
+                var count = parseInt(input.value) || 0;
+                total += value * count;
+                coinCounts[value] = count;
+            });
+
+            insertedAmount = total;
+            var insertedAmountElement = document.getElementById('insertedAmount');
+            insertedAmountElement.innerText = total + ' руб.';
+            insertedAmountElement.style.color = insertedAmount < parseFloat('@Model.CartTotal') ? 'red' : 'green';
+            document.getElementById('insertedAmountInput').value = total;
+
+            // Обновляем скрытое поле количество монет
+            document.getElementById('coinCountsInput').value = JSON.stringify(coinCounts);
+
+            var payButton = document.getElementById('payButton');
+            payButton.disabled = insertedAmount < parseFloat('@Model.CartTotal');
+        }
+
+        function incrementCoin(denomination) {
+            var input = document.getElementById('coin-' + denomination);
+            input.value = parseInt(input.value) + 1;
+            updateCoinCount(denomination, input.value);
+        }
+
+        function decrementCoin(denomination) {
+            var input = document.getElementById('coin-' + denomination);
+            if (parseInt(input.value) > 0) {
+                input.value = parseInt(input.value) - 1;
+                updateCoinCount(denomination, input.value);
+            }
+        }
+
+        // Проверка на отрицательные числа
+        function validateCoinInput(input) {
+            if (parseInt(input.value) < 0) {
+                input.value = 0;
+            }
+            updateCoinCount(parseInt(input.id.replace('coin-', '')), input.value);
+        }
+    </script>
+}

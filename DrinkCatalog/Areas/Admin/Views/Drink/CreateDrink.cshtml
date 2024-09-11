@@ -1,0 +1,62 @@
+﻿@model DrinkCatalog.Data.Models.ViewModels.DrinkVM
+
+<div class="card shadow border-0 mt-4">
+    <div class="card-header bg-info-subtle py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-dark py-2">Создать напиток</h2>
+            </div>
+        </div>
+    </div>
+
+    <form asp-action="CreateDrink" method="post" enctype="multipart/form-data">
+
+        <input asp-for="Drink.DrinkId" type="hidden" />
+
+        <div class="card-body">
+            <div class="mb-4">
+                <div class="form-floating mb-3">
+                    <input asp-for="Drink.Name" class="form-control" id="drinkName" placeholder="Name" />
+                    <label for="drinkName" class="text-dark">Name</label>
+                    <span asp-validation-for="Drink.Name" class="text-danger"></span>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input asp-for="Drink.Price" class="form-control" id="drinkPrice" placeholder="Price" />
+                    <label for="drinkPrice" class="text-dark">Price</label>
+                    <span asp-validation-for="Drink.Price" class="text-danger"></span>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input asp-for="Drink.Quantity" class="form-control" id="drinkQuantity" placeholder="Quantity" />
+                    <label for="drinkQuantity" class="text-dark">Quantity</label>
+                    <span asp-validation-for="Drink.Quantity" class="text-danger"></span>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <select asp-for="Drink.BrandId" asp-items="@(Model.BrandList)" class="form-select" id="drinkBrand" aria-label="Brand">
+                        <option disabled selected>--Select Brand--</option>
+                    </select>
+                    <label for="drinkBrand" class="text-dark">Brand</label>
+                    <span asp-validation-for="Drink.BrandId" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label for="drinkImage" class="form-label text-dark">Image</label>
+                    <input type="file" name="file" class="form-control" id="drinkImage" />
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <a asp-controller="Drink" asp-action="Index" class="btn btn-warning w-75">Назад</a>
+                <button type="submit" class="btn btn-success w-75">Создать</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

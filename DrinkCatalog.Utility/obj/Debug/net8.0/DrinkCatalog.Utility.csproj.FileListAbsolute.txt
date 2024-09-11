@@ -1,0 +1,13 @@
+C:\Users\Дмитрий\Desktop\Интравижен\MyDrinkCatalog\DrinkCatalog\DrinkCatalog.Utility\bin\Debug\net8.0\DrinkCatalog.Utility.deps.json
+C:\Users\Дмитрий\Desktop\Интравижен\MyDrinkCatalog\DrinkCatalog\DrinkCatalog.Utility\bin\Debug\net8.0\DrinkCatalog.Utility.dll
+C:\Users\Дмитрий\Desktop\Интравижен\MyDrinkCatalog\DrinkCatalog\DrinkCatalog.Utility\bin\Debug\net8.0\DrinkCatalog.Utility.pdb
+C:\Users\Дмитрий\Desktop\Интравижен\MyDrinkCatalog\DrinkCatalog\DrinkCatalog.Utility\obj\Debug\net8.0\DrinkCatalog.Utility.csproj.AssemblyReference.cache
+C:\Users\Дмитрий\Desktop\Интравижен\MyDrinkCatalog\DrinkCatalog\DrinkCatalog.Utility\obj\Debug\net8.0\DrinkCatalog.Utility.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Дмитрий\Desktop\Интравижен\MyDrinkCatalog\DrinkCatalog\DrinkCatalog.Utility\obj\Debug\net8.0\DrinkCatalog.Utility.AssemblyInfoInputs.cache
+C:\Users\Дмитрий\Desktop\Интравижен\MyDrinkCatalog\DrinkCatalog\DrinkCatalog.Utility\obj\Debug\net8.0\DrinkCatalog.Utility.AssemblyInfo.cs
+C:\Users\Дмитрий\Desktop\Интравижен\MyDrinkCatalog\DrinkCatalog\DrinkCatalog.Utility\obj\Debug\net8.0\DrinkCatalog.Utility.csproj.CoreCompileInputs.cache
+C:\Users\Дмитрий\Desktop\Интравижен\MyDrinkCatalog\DrinkCatalog\DrinkCatalog.Utility\obj\Debug\net8.0\DrinkCatalog.Utility.sourcelink.json
+C:\Users\Дмитрий\Desktop\Интравижен\MyDrinkCatalog\DrinkCatalog\DrinkCatalog.Utility\obj\Debug\net8.0\DrinkCatalog.Utility.dll
+C:\Users\Дмитрий\Desktop\Интравижен\MyDrinkCatalog\DrinkCatalog\DrinkCatalog.Utility\obj\Debug\net8.0\refint\DrinkCatalog.Utility.dll
+C:\Users\Дмитрий\Desktop\Интравижен\MyDrinkCatalog\DrinkCatalog\DrinkCatalog.Utility\obj\Debug\net8.0\DrinkCatalog.Utility.pdb
+C:\Users\Дмитрий\Desktop\Интравижен\MyDrinkCatalog\DrinkCatalog\DrinkCatalog.Utility\obj\Debug\net8.0\ref\DrinkCatalog.Utility.dll

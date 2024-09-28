@@ -11,7 +11,7 @@ namespace DrinkCatalog.Areas.Customer.Controllers
     {
         private readonly IUnitOfWork _unitOfWork;
 
-        public ShoppingCartVM ShoppingCartVM { get; set;}
+        //public ShoppingCartVM ShoppingCartVM { get; set;}
 
         public HomeController(IUnitOfWork unitOfWork)
         {
@@ -20,10 +20,8 @@ namespace DrinkCatalog.Areas.Customer.Controllers
 
         public IActionResult Index(string brand, decimal? minPrice, decimal? maxPrice, string sortBy = "Price", int page = 1, int pageSize = 12)
         {
-            var brands = _unitOfWork.Brands.GetAll();
-            ViewBag.Brands = brands;
-
             var drinks = _unitOfWork.Drinks.GetAll(includeProperties: "Brand");
+            var brands = drinks.Select(u => u.Brand).Distinct().ToList();
 
             if (!string.IsNullOrEmpty(brand) && brand != "Все бренды")
             {
@@ -32,9 +30,6 @@ namespace DrinkCatalog.Areas.Customer.Controllers
 
             var minPriceValue = drinks.Min(d => d.Price);
             var maxPriceValue = drinks.Max(d => d.Price);
-
-            ViewBag.MinPrice = minPriceValue;
-            ViewBag.MaxPrice = maxPriceValue;
 
             if (minPrice.HasValue)
             {
@@ -59,13 +54,22 @@ namespace DrinkCatalog.Areas.Customer.Controllers
             var totalItems = drinks.Count();
             var drinksToDisplay = drinks.Skip((page - 1) * pageSize).Take(pageSize).ToList();
 
-            ViewBag.TotalItems = totalItems;
-            ViewBag.Page = page;
-            ViewBag.PageSize = pageSize;
+            var cartItemCount = HttpContext.Session.GetInt32(StaticDetails.SessionCart) ?? 0;
 
-            ViewBag.CartItemCount = HttpContext.Session.GetInt32(StaticDetails.SessionCart) ?? 0;
+            var drinkCatalogVM = new DrinkCatalogVM
+            {
+                Brands = brands,
+                Drinks = drinksToDisplay,
+                MinPrice = minPriceValue,
+                MaxPrice = maxPriceValue,
+                CartItemCount = cartItemCount,
+                TotalItems = totalItems,
+                Page = page,
+                PageSize = pageSize
+            };
 
-            return View(drinksToDisplay);
+            return View(drinkCatalogVM);
+
         }
 
      

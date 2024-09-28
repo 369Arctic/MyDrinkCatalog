@@ -1368,11 +1368,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Дмитрий\\Desktop\\Интравижен\\MyDrinkCatalog\\DrinkCatalog\\DrinkCatalog.Utility\\DrinkCatalog.Utility.csproj",
+      "projectUniqueName": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog.Utility\\DrinkCatalog.Utility.csproj",
       "projectName": "DrinkCatalog.Utility",
-      "projectPath": "C:\\Users\\Дмитрий\\Desktop\\Интравижен\\MyDrinkCatalog\\DrinkCatalog\\DrinkCatalog.Utility\\DrinkCatalog.Utility.csproj",
+      "projectPath": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog.Utility\\DrinkCatalog.Utility.csproj",
       "packagesPath": "C:\\Users\\Дмитрий\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Дмитрий\\Desktop\\Интравижен\\MyDrinkCatalog\\DrinkCatalog\\DrinkCatalog.Utility\\obj\\",
+      "outputPath": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog.Utility\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Дмитрий\\AppData\\Roaming\\NuGet\\NuGet.Config",

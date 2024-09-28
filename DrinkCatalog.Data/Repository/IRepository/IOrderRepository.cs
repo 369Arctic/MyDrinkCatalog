@@ -1,9 +1,9 @@
-﻿using DrinkCatalog.Data.Models;
+﻿//using DrinkCatalog.Data.Models;
 
-namespace DrinkCatalog.Data.Repository.IRepository
-{
-    public interface IOrderRepository : IRepository<Order>
-    {
-        void Update(Order order);
-    }
-}
+//namespace DrinkCatalog.Data.Repository.IRepository
+//{
+//    public interface IOrderRepository : IRepository<Order>
+//    {
+//        void Update(Order order);
+//    }
+//}

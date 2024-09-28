@@ -15,6 +15,11 @@ namespace DrinkCatalog.Data.Repository
             _dbContext.Drinks.Include(u => u.Brand);
         }
 
+        public void Update(T entity)
+        {
+            dbSet.Update(entity);
+        }
+
         public IEnumerable<T> GetAll(Expression<Func<T, bool>>? filter = null, string? includeProperties = null)
         {
             IQueryable<T> query = dbSet;

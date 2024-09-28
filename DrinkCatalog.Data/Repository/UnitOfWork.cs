@@ -1,4 +1,5 @@
-﻿using DrinkCatalog.Data.Repository.IRepository;
+﻿using DrinkCatalog.Data.Models;
+using DrinkCatalog.Data.Repository.IRepository;
 
 namespace DrinkCatalog.Data.Repository
 {
@@ -9,18 +10,18 @@ namespace DrinkCatalog.Data.Repository
         public UnitOfWork(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
-            Brands = new BrandRepository(_dbContext);
-            Drinks = new DrinkRepository(_dbContext);
-            ShoppingCarts = new ShoppingCartRepository(_dbContext);
-            Coins = new CoinRepository(_dbContext);
-            Orders = new OrderRepository(_dbContext);
+            Brands = new Repository<Brand>(_dbContext);
+            Drinks = new Repository<Drink>(_dbContext);
+            ShoppingCarts = new Repository<ShoppingCart>(_dbContext);
+            Coins = new Repository<Coin>(_dbContext);
+            Orders = new Repository<Order>(_dbContext);
         }
 
-        public IBrandRepository Brands { get; set; }
-        public IDrinkRepository Drinks { get; set; }
-        public IShoppingCartRepository ShoppingCarts { get; set; }
-        public ICoinRepository Coins { get; set; }
-        public IOrderRepository Orders { get; set; }
+        public IRepository<Brand> Brands { get; set; }
+        public IRepository<Drink> Drinks { get; set; }
+        public IRepository<ShoppingCart> ShoppingCarts { get; set; }
+        public IRepository<Coin> Coins { get; set; }
+        public IRepository<Order> Orders { get; set; }
 
         public void Save()
         {

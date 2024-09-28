@@ -1,12 +1,15 @@
-﻿namespace DrinkCatalog.Data.Repository.IRepository
+﻿using DrinkCatalog.Data.Models;
+
+namespace DrinkCatalog.Data.Repository.IRepository
 {
     public interface IUnitOfWork : IDisposable
     {
-        IBrandRepository Brands { get; }
-        IDrinkRepository Drinks { get; }
-        IShoppingCartRepository ShoppingCarts { get; }
-        ICoinRepository Coins { get; }
-        IOrderRepository Orders { get; }
+        IRepository<Brand> Brands { get; }
+        //IDrinkRepository Drinks { get; }
+        IRepository<Drink> Drinks { get; }
+        IRepository<ShoppingCart> ShoppingCarts { get; }
+        IRepository<Coin> Coins { get; }
+        IRepository<Order> Orders { get; }
         void Save();
     }
 }

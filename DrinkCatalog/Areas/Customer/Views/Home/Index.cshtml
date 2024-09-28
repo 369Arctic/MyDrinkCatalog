@@ -1,9 +1,10 @@
-﻿@model IEnumerable<DrinkCatalog.Data.Models.Drink>
+﻿@model DrinkCatalog.Data.Models.ViewModels.DrinkCatalogVM
 @{
     ViewBag.Title = "Газированные напитки";
-    var minPrice = ViewBag.MinPrice;
-    var maxPrice = ViewBag.MaxPrice;
-    var cartItemCount = ViewBag.CartItemCount; // Получаем количество товаров в корзине
+    var minPrice = Model.MinPrice;
+    var maxPrice = Model.MaxPrice;
+    var cartItemCount = Model.CartItemCount;
+
 }
 
 <div class="container mt-4">
@@ -20,7 +21,7 @@
                     <label for="brandSelect" class="form-label">Бренд</label>
                     <select class="form-select" id="brandSelect" name="brand">
                         <option value="">Все бренды</option>
-                        @foreach (var brand in ViewBag.Brands)
+                        @foreach (var brand in Model.Brands)
                         {
                             <option value="@brand.Name">@brand.Name</option>
                         }
@@ -60,7 +61,7 @@
         <div class="col-md-9 mt-3">
             <h4>Каталог напитков</h4>
             <div class="row clearfix">
-                @foreach (var drink in Model.OrderBy(d => d.Price))  @* Сортировка по цене *@
+                @foreach (var drink in Model.Drinks.OrderBy(d => d.Price))  @* Сортировка по цене *@
                 {
                     <div class="col-md-3 mb-4 d-flex">
                         <div class="card h-100">
@@ -90,8 +91,8 @@
     <script>
         $(document).ready(function () {
             // Получаем текущие значения минимальной и максимальной цены
-            const minPrice = parseFloat('@ViewBag.MinPrice');
-            const maxPrice = parseFloat('@ViewBag.MaxPrice');
+            const minPrice = parseFloat('@Model.MinPrice');
+            const maxPrice = parseFloat('@Model.MaxPrice');
             const initialMinPrice = parseFloat('@Context.Request.Query["minPrice"]') || minPrice;
             const initialMaxPrice = parseFloat('@Context.Request.Query["maxPrice"]') || maxPrice;
 

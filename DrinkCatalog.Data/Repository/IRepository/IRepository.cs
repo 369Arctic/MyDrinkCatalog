@@ -11,6 +11,8 @@ namespace DrinkCatalog.Data.Repository.IRepository
         void AddRange(IEnumerable<T> entities);
         void Remove(T entity);
         void RemoveRange(IEnumerable<T> entities);
+
+        void Update(T entity);
         T GetFirstOrDefault(Expression<Func<T, bool>> filter, string? includeProperties = null);
     }
 }

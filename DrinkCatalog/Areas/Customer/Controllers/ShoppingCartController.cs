@@ -1,4 +1,5 @@
-﻿using DrinkCatalog.Data.Repository.IRepository;
+﻿using DrinkCatalog.Data.Models.ViewModels;
+using DrinkCatalog.Data.Repository.IRepository;
 using DrinkCatalog.Utility;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,20 +22,23 @@ namespace DrinkCatalog.Areas.Customer.Controllers
 
             if (!cartItems.Any())
             {
-                ViewBag.Message = "У вас нет ни одного товара, вернитесь на страницу каталога.";
+                TempData["Message"] = "У вас нет ни одного товара, вернитесь на страницу каталога.";
                 HttpContext.Session.SetInt32(StaticDetails.SessionCart, 0); // Обновление сессии при пустой корзине
             }
 
             var cartTotal = cartItems.Sum(x => x.Drink.Price * x.Count);
-            var sortedCartItems = cartItems.OrderBy(u => u.Id);
+            var cartItemCount = cartItems.Sum(u => u.Count);
 
-            ViewBag.CartTotal = cartTotal;
-            ViewBag.CartItemCount = cartItems.Sum(x => x.Count); // Количество всех товаров в корзине
+            HttpContext.Session.SetInt32(StaticDetails.SessionCart, cartItemCount);
 
-            HttpContext.Session.SetInt32(StaticDetails.SessionCart, cartItems.Sum(x => x.Count));
-            ViewBag.CartItemCount = HttpContext.Session.GetInt32(StaticDetails.SessionCart) ?? 0;
-
-            return View(sortedCartItems);
+            var shoppingCartVM = new ShoppingCartVM
+            {
+                ShoppingCartsList = cartItems.OrderBy(u => u.Id),
+                CartTotal = cartTotal,
+                CartItemCount = cartItemCount,
+                Message = TempData["Message"]?.ToString()
+            };
+            return View(shoppingCartVM);
         }
 
 

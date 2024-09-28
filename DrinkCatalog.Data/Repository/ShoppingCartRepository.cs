@@ -1,9 +1,8 @@
 ﻿using DrinkCatalog.Data.Models;
-using DrinkCatalog.Data.Repository.IRepository;
 
 namespace DrinkCatalog.Data.Repository
 {
-    public class ShoppingCartRepository : Repository<ShoppingCart>, IShoppingCartRepository
+    public class ShoppingCartRepository : Repository<ShoppingCart>
     {
         private ApplicationDbContext _dbContext;
 
@@ -12,9 +11,5 @@ namespace DrinkCatalog.Data.Repository
             _dbContext = dbContext;
         }
 
-        public void Update(ShoppingCart shoppingCart)
-        {
-            _dbContext.ShoppingCarts.Update(shoppingCart);
-        }
     }
 }

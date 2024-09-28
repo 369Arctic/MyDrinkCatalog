@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Дмитрий\\Desktop\\Интравижен\\MyDrinkCatalog\\DrinkCatalog\\DrinkCatalog\\DrinkCatalog.csproj": {}
+    "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\DrinkCatalog.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Дмитрий\\Desktop\\Интравижен\\MyDrinkCatalog\\DrinkCatalog\\DrinkCatalog.Data\\DrinkCatalog.Data.csproj": {
+    "D:\\Git\\MyDrinkCatalog\\DrinkCatalog.Data\\DrinkCatalog.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Дмитрий\\Desktop\\Интравижен\\MyDrinkCatalog\\DrinkCatalog\\DrinkCatalog.Data\\DrinkCatalog.Data.csproj",
+        "projectUniqueName": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog.Data\\DrinkCatalog.Data.csproj",
         "projectName": "DrinkCatalog.Data",
-        "projectPath": "C:\\Users\\Дмитрий\\Desktop\\Интравижен\\MyDrinkCatalog\\DrinkCatalog\\DrinkCatalog.Data\\DrinkCatalog.Data.csproj",
+        "projectPath": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog.Data\\DrinkCatalog.Data.csproj",
         "packagesPath": "C:\\Users\\Дмитрий\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Дмитрий\\Desktop\\Интравижен\\MyDrinkCatalog\\DrinkCatalog\\DrinkCatalog.Data\\obj\\",
+        "outputPath": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Дмитрий\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -100,14 +100,14 @@
         }
       }
     },
-    "C:\\Users\\Дмитрий\\Desktop\\Интравижен\\MyDrinkCatalog\\DrinkCatalog\\DrinkCatalog.Utility\\DrinkCatalog.Utility.csproj": {
+    "D:\\Git\\MyDrinkCatalog\\DrinkCatalog.Utility\\DrinkCatalog.Utility.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Дмитрий\\Desktop\\Интравижен\\MyDrinkCatalog\\DrinkCatalog\\DrinkCatalog.Utility\\DrinkCatalog.Utility.csproj",
+        "projectUniqueName": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog.Utility\\DrinkCatalog.Utility.csproj",
         "projectName": "DrinkCatalog.Utility",
-        "projectPath": "C:\\Users\\Дмитрий\\Desktop\\Интравижен\\MyDrinkCatalog\\DrinkCatalog\\DrinkCatalog.Utility\\DrinkCatalog.Utility.csproj",
+        "projectPath": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog.Utility\\DrinkCatalog.Utility.csproj",
         "packagesPath": "C:\\Users\\Дмитрий\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Дмитрий\\Desktop\\Интравижен\\MyDrinkCatalog\\DrinkCatalog\\DrinkCatalog.Utility\\obj\\",
+        "outputPath": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog.Utility\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Дмитрий\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -170,14 +170,14 @@
         }
       }
     },
-    "C:\\Users\\Дмитрий\\Desktop\\Интравижен\\MyDrinkCatalog\\DrinkCatalog\\DrinkCatalog\\DrinkCatalog.csproj": {
+    "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\DrinkCatalog.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Дмитрий\\Desktop\\Интравижен\\MyDrinkCatalog\\DrinkCatalog\\DrinkCatalog\\DrinkCatalog.csproj",
+        "projectUniqueName": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\DrinkCatalog.csproj",
         "projectName": "DrinkCatalog",
-        "projectPath": "C:\\Users\\Дмитрий\\Desktop\\Интравижен\\MyDrinkCatalog\\DrinkCatalog\\DrinkCatalog\\DrinkCatalog.csproj",
+        "projectPath": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\DrinkCatalog.csproj",
         "packagesPath": "C:\\Users\\Дмитрий\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Дмитрий\\Desktop\\Интравижен\\MyDrinkCatalog\\DrinkCatalog\\DrinkCatalog\\obj\\",
+        "outputPath": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Дмитрий\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -194,11 +194,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Дмитрий\\Desktop\\Интравижен\\MyDrinkCatalog\\DrinkCatalog\\DrinkCatalog.Data\\DrinkCatalog.Data.csproj": {
-                "projectPath": "C:\\Users\\Дмитрий\\Desktop\\Интравижен\\MyDrinkCatalog\\DrinkCatalog\\DrinkCatalog.Data\\DrinkCatalog.Data.csproj"
+              "D:\\Git\\MyDrinkCatalog\\DrinkCatalog.Data\\DrinkCatalog.Data.csproj": {
+                "projectPath": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog.Data\\DrinkCatalog.Data.csproj"
               },
-              "C:\\Users\\Дмитрий\\Desktop\\Интравижен\\MyDrinkCatalog\\DrinkCatalog\\DrinkCatalog.Utility\\DrinkCatalog.Utility.csproj": {
-                "projectPath": "C:\\Users\\Дмитрий\\Desktop\\Интравижен\\MyDrinkCatalog\\DrinkCatalog\\DrinkCatalog.Utility\\DrinkCatalog.Utility.csproj"
+              "D:\\Git\\MyDrinkCatalog\\DrinkCatalog.Utility\\DrinkCatalog.Utility.csproj": {
+                "projectPath": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog.Utility\\DrinkCatalog.Utility.csproj"
               }
             }
           }

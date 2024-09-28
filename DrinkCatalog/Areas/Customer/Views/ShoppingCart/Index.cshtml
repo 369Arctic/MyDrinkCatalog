@@ -1,8 +1,5 @@
-﻿@model IEnumerable<DrinkCatalog.Data.Models.ShoppingCart>
+﻿@model DrinkCatalog.Data.Models.ViewModels.ShoppingCartVM
 
-@{
-    var cartItemCount = ViewBag.CartItemCount;
-}
 <div class="container mt-4">
     @if (TempData["ErrorMessage"] != null)
     {
@@ -13,9 +10,9 @@
 
     <div class="alert alert-danger error-message" style="display:none;"></div>
 
-    @if (ViewBag.Message != null)
+    @if (!string.IsNullOrEmpty(Model.Message))
     {
-        <div class="alert alert-info">@ViewBag.Message</div>
+        <div class="alert alert-info">@Model.Message</div>
     }
     else
     {
@@ -31,7 +28,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model)
+                @foreach (var item in Model.ShoppingCartsList)
                 {
                     <tr>
                         <td class="align-middle">
@@ -63,7 +60,7 @@
         </table>
 
         <div class="text-right">
-            <h4>Итоговая сумма: @ViewBag.CartTotal руб.</h4>
+            <h4>Итоговая сумма: @Model.CartTotal руб.</h4>
         </div>
 
         <div class="mt-4">

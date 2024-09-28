@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SYvjuf02zcoW4kpASLHvkZGAkG24cYw4x1NFztCrnrnuyjodja3PWH+ELdnlFvV6RAknsiD2nC6IistyuKls7Q==",
+  "dgSpecHash": "roJ1jg8jV4KJxIAuc01GECTjKWS74Bc3hXixfWpHat8hLG3cLSBym/RtRhMXvWJzIPZsRO9d16vFbOh3/FojhQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Дмитрий\\Desktop\\Интравижен\\MyDrinkCatalog\\DrinkCatalog\\DrinkCatalog\\DrinkCatalog.csproj",
+  "projectFilePath": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\DrinkCatalog.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Дмитрий\\.nuget\\packages\\epplus\\7.3.1\\epplus.7.3.1.nupkg.sha512",
     "C:\\Users\\Дмитрий\\.nuget\\packages\\epplus.interfaces\\6.1.1\\epplus.interfaces.6.1.1.nupkg.sha512",

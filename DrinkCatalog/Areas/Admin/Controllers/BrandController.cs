@@ -1,24 +1,24 @@
 ﻿using DrinkCatalog.Data.Models;
 using DrinkCatalog.Data.Repository.IRepository;
+using DrinkCatalog.Services.IService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DrinkCatalog.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]
     public class BrandController : Controller
     {
-        private readonly IUnitOfWork _unitOfWork;
-        public BrandController(IUnitOfWork unitOfWork)
-        {
-            _unitOfWork = unitOfWork;
-        }
+        private readonly IBrandService _brandService;
 
+        public BrandController(IBrandService brandService)
+        {
+            _brandService = brandService;
+        }
 
         public IActionResult Index()
         {
-            var brands = _unitOfWork.Brands.GetAll();
+            var brands = _brandService.GetAllBrands();
             return View(brands);
         }
 
@@ -32,9 +32,7 @@ namespace DrinkCatalog.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                _unitOfWork.Brands.Add(brand);
-                _unitOfWork.Save();
-                TempData["SuccessMessage"] = "Бренд успешно создан";
+                TempData["SuccessMessage"] = _brandService.CreateBrand(brand);
                 return RedirectToAction("Index");
             }
             return View(brand);
@@ -42,7 +40,7 @@ namespace DrinkCatalog.Areas.Admin.Controllers
 
         public IActionResult EditBrand(int id)
         {
-            var brand = _unitOfWork.Brands.GetById(u => u.BrandId == id);
+            var brand = _brandService.GetBrandById(id);
             if (brand == null)
             {
                 return NotFound();
@@ -55,9 +53,7 @@ namespace DrinkCatalog.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                _unitOfWork.Brands.Update(brand);
-                _unitOfWork.Save();
-                TempData["SuccessMessage"] = "Бренд успешно изменен";
+                TempData["SuccessMessage"] = _brandService.EditBrand(brand);
                 return RedirectToAction("Index");
             }
             return View(brand);
@@ -65,11 +61,11 @@ namespace DrinkCatalog.Areas.Admin.Controllers
 
         public IActionResult DeleteBrand(int id)
         {
-            if (id == 0 || id == null)
+            if (id == 0)
             {
                 return NotFound();
             }
-            var brandForDelete = _unitOfWork.Brands.GetById(u => u.BrandId == id);
+            var brandForDelete = _brandService.GetBrandById(id);
             if (brandForDelete == null)
             {
                 return NotFound();
@@ -81,16 +77,8 @@ namespace DrinkCatalog.Areas.Admin.Controllers
         [ActionName("DeleteBrand")]
         public IActionResult DeleteBrandPost(int id)
         {
-            var brand = _unitOfWork.Brands.GetById(u => u.BrandId == id);
-            if (brand == null)
-            {
-                return NotFound();
-            }
-            _unitOfWork.Brands.Remove(brand);
-            _unitOfWork.Save();
-            TempData["SuccessMessage"] = "Бренд успешно удален";
+            TempData["SuccessMessage"] = _brandService.DeleteBrand(id);
             return RedirectToAction("Index");
         }
-
     }
 }

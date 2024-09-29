@@ -1,11 +1,12 @@
 ﻿using DrinkCatalog.Data.Models;
 using DrinkCatalog.Data.Repository.IRepository;
+using DrinkCatalog.Services.IService;
 using OfficeOpenXml;
 using System.Globalization;
 
 namespace DrinkCatalog.Services
 {
-    public class DrinkImportService
+    public class DrinkImportService : IDrinkImportService
     {
         public async Task<(List<Drink> drinks, List<string> errors)> ImportDrinksAsync(Stream fileStream)
         {

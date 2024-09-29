@@ -1,5 +1,6 @@
 ﻿using DrinkCatalog.Data.Models;
 using DrinkCatalog.Data.Repository.IRepository;
+using DrinkCatalog.Services.IService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,18 +10,16 @@ namespace DrinkCatalog.Areas.Admin.Controllers
     [Authorize(Roles = "Admin")]
     public class CoinController : Controller
     {
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly ICoinService _coinService;
 
-        public CoinController(IUnitOfWork unitOfWork)
+        public CoinController(ICoinService coinService)
         {
-            _unitOfWork = unitOfWork;
+            _coinService = coinService;
         }
+
         public IActionResult Index()
         {
-            var coins = _unitOfWork.Coins.GetAll()
-                                         .OrderBy(u => u.Denomination)
-                                         .ToList();
-
+            var coins = _coinService.GetAllCoins();
             return View(coins);
         }
 
@@ -32,35 +31,22 @@ namespace DrinkCatalog.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult AddCoin(Coin coin)
         {
-            int[] allowedDenominations = { 1, 2, 5, 10 };
-            if (!allowedDenominations.Contains(coin.Denomination))
+            var result = _coinService.AddOrUpdateCoin(coin);
+
+            if (result.Contains("Номинал монеты"))
             {
-                ModelState.AddModelError("", "Номинал монеты должен быть 1, 2, 5 или 10 рублей.");
-                TempData["ErrorMessage"] = "Номинал монеты должен быть 1, 2, 5 или 10 рублей.";
+                ModelState.AddModelError("", result);
+                TempData["ErrorMessage"] = result;
                 return View(coin);
             }
 
-            var existingCoin = _unitOfWork.Coins.GetFirstOrDefault(u => u.Denomination == coin.Denomination);
-            if (existingCoin != null)
-            {
-                existingCoin.Count += coin.Count;
-                _unitOfWork.Coins.Update(existingCoin);
-                TempData["SuccessMessage"] = "Количество монет успешно обновлено";
-            }
-            else
-            {
-                _unitOfWork.Coins.Add(coin);
-                TempData["SuccessMessage"] = "Новая монета успешно добавлена";
-            }
-
-            _unitOfWork.Save();
-
+            TempData["SuccessMessage"] = result;
             return RedirectToAction(nameof(Index));
         }
 
         public IActionResult EditCoin(int id)
         {
-            var coin = _unitOfWork.Coins.GetById(u => u.Id == id);
+            var coin = _coinService.GetCoinById(id);
             if (coin == null)
             {
                 return NotFound();
@@ -73,9 +59,8 @@ namespace DrinkCatalog.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                _unitOfWork.Coins.Update(coin);
-                _unitOfWork.Save();
-                TempData["SuccessMessage"] = "Монета успешно отредактирована";
+                var result = _coinService.EditCoin(coin);
+                TempData["SuccessMessage"] = result;
                 return RedirectToAction(nameof(Index));
             }
             return View(coin);

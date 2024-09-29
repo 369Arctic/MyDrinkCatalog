@@ -3,16 +3,48 @@
   "WorkspaceRootPath": "D:\\Git\\MyDrinkCatalog\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5E08C52A-69CB-486D-96F6-1BB679189FE3}|DrinkCatalog.Data\\DrinkCatalog.Data.csproj|d:\\git\\mydrinkcatalog\\drinkcatalog.data\\repository\\brandrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E08C52A-69CB-486D-96F6-1BB679189FE3}|DrinkCatalog.Data\\DrinkCatalog.Data.csproj|solutionrelative:drinkcatalog.data\\repository\\brandrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E8030A11-5FC2-49F2-B2DE-FC81D9FC65A6}|DrinkCatalog\\DrinkCatalog.csproj|d:\\git\\mydrinkcatalog\\drinkcatalog\\areas\\customer\\controllers\\shoppingcartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E8030A11-5FC2-49F2-B2DE-FC81D9FC65A6}|DrinkCatalog\\DrinkCatalog.csproj|solutionrelative:drinkcatalog\\areas\\customer\\controllers\\shoppingcartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E8030A11-5FC2-49F2-B2DE-FC81D9FC65A6}|DrinkCatalog\\DrinkCatalog.csproj|d:\\git\\mydrinkcatalog\\drinkcatalog\\areas\\admin\\views\\drink\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E8030A11-5FC2-49F2-B2DE-FC81D9FC65A6}|DrinkCatalog\\DrinkCatalog.csproj|solutionrelative:drinkcatalog\\areas\\admin\\views\\drink\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{E8030A11-5FC2-49F2-B2DE-FC81D9FC65A6}|DrinkCatalog\\DrinkCatalog.csproj|d:\\git\\mydrinkcatalog\\drinkcatalog\\areas\\customer\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E8030A11-5FC2-49F2-B2DE-FC81D9FC65A6}|DrinkCatalog\\DrinkCatalog.csproj|solutionrelative:drinkcatalog\\areas\\customer\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E8030A11-5FC2-49F2-B2DE-FC81D9FC65A6}|DrinkCatalog\\DrinkCatalog.csproj|d:\\git\\mydrinkcatalog\\drinkcatalog\\areas\\admin\\views\\brand\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E8030A11-5FC2-49F2-B2DE-FC81D9FC65A6}|DrinkCatalog\\DrinkCatalog.csproj|solutionrelative:drinkcatalog\\areas\\admin\\views\\brand\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{E8030A11-5FC2-49F2-B2DE-FC81D9FC65A6}|DrinkCatalog\\DrinkCatalog.csproj|d:\\git\\mydrinkcatalog\\drinkcatalog\\areas\\customer\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E8030A11-5FC2-49F2-B2DE-FC81D9FC65A6}|DrinkCatalog\\DrinkCatalog.csproj|solutionrelative:drinkcatalog\\areas\\customer\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E8030A11-5FC2-49F2-B2DE-FC81D9FC65A6}|DrinkCatalog\\DrinkCatalog.csproj|d:\\git\\mydrinkcatalog\\drinkcatalog\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E8030A11-5FC2-49F2-B2DE-FC81D9FC65A6}|DrinkCatalog\\DrinkCatalog.csproj|solutionrelative:drinkcatalog\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E8030A11-5FC2-49F2-B2DE-FC81D9FC65A6}|DrinkCatalog\\DrinkCatalog.csproj|d:\\git\\mydrinkcatalog\\drinkcatalog\\areas\\admin\\controllers\\drinkcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E8030A11-5FC2-49F2-B2DE-FC81D9FC65A6}|DrinkCatalog\\DrinkCatalog.csproj|solutionrelative:drinkcatalog\\areas\\admin\\controllers\\drinkcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E8030A11-5FC2-49F2-B2DE-FC81D9FC65A6}|DrinkCatalog\\DrinkCatalog.csproj|d:\\git\\mydrinkcatalog\\drinkcatalog\\services\\brandservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E8030A11-5FC2-49F2-B2DE-FC81D9FC65A6}|DrinkCatalog\\DrinkCatalog.csproj|solutionrelative:drinkcatalog\\services\\brandservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E8030A11-5FC2-49F2-B2DE-FC81D9FC65A6}|DrinkCatalog\\DrinkCatalog.csproj|d:\\git\\mydrinkcatalog\\drinkcatalog\\services\\imageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E8030A11-5FC2-49F2-B2DE-FC81D9FC65A6}|DrinkCatalog\\DrinkCatalog.csproj|solutionrelative:drinkcatalog\\services\\imageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E8030A11-5FC2-49F2-B2DE-FC81D9FC65A6}|DrinkCatalog\\DrinkCatalog.csproj|d:\\git\\mydrinkcatalog\\drinkcatalog\\services\\drinkimportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E8030A11-5FC2-49F2-B2DE-FC81D9FC65A6}|DrinkCatalog\\DrinkCatalog.csproj|solutionrelative:drinkcatalog\\services\\drinkimportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E8030A11-5FC2-49F2-B2DE-FC81D9FC65A6}|DrinkCatalog\\DrinkCatalog.csproj|d:\\git\\mydrinkcatalog\\drinkcatalog\\services\\drinkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E8030A11-5FC2-49F2-B2DE-FC81D9FC65A6}|DrinkCatalog\\DrinkCatalog.csproj|solutionrelative:drinkcatalog\\services\\drinkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E8030A11-5FC2-49F2-B2DE-FC81D9FC65A6}|DrinkCatalog\\DrinkCatalog.csproj|d:\\git\\mydrinkcatalog\\drinkcatalog\\services\\iservice\\iimageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E8030A11-5FC2-49F2-B2DE-FC81D9FC65A6}|DrinkCatalog\\DrinkCatalog.csproj|solutionrelative:drinkcatalog\\services\\iservice\\iimageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E8030A11-5FC2-49F2-B2DE-FC81D9FC65A6}|DrinkCatalog\\DrinkCatalog.csproj|d:\\git\\mydrinkcatalog\\drinkcatalog\\services\\iservice\\idrinkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E8030A11-5FC2-49F2-B2DE-FC81D9FC65A6}|DrinkCatalog\\DrinkCatalog.csproj|solutionrelative:drinkcatalog\\services\\iservice\\idrinkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,39 +63,144 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "BrandRepository.cs",
-              "DocumentMoniker": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog.Data\\Repository\\BrandRepository.cs",
-              "RelativeDocumentMoniker": "DrinkCatalog.Data\\Repository\\BrandRepository.cs",
-              "ToolTip": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog.Data\\Repository\\BrandRepository.cs",
-              "RelativeToolTip": "DrinkCatalog.Data\\Repository\\BrandRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAA0AAAA",
+              "Title": "ShoppingCartController.cs",
+              "DocumentMoniker": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\Areas\\Customer\\Controllers\\ShoppingCartController.cs",
+              "RelativeDocumentMoniker": "DrinkCatalog\\Areas\\Customer\\Controllers\\ShoppingCartController.cs",
+              "ToolTip": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\Areas\\Customer\\Controllers\\ShoppingCartController.cs",
+              "RelativeToolTip": "DrinkCatalog\\Areas\\Customer\\Controllers\\ShoppingCartController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-28T09:39:42.254Z",
+              "WhenOpened": "2024-09-29T16:00:11.517Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PaymentController.cs",
+              "DocumentMoniker": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\Areas\\Customer\\Controllers\\PaymentController.cs",
+              "RelativeDocumentMoniker": "DrinkCatalog\\Areas\\Customer\\Controllers\\PaymentController.cs",
+              "ToolTip": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\Areas\\Customer\\Controllers\\PaymentController.cs",
+              "RelativeToolTip": "DrinkCatalog\\Areas\\Customer\\Controllers\\PaymentController.cs",
+              "ViewState": "AQIAAHoAAAAAAAAAAAAwwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T17:11:51.988Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\Areas\\Admin\\Views\\Brand\\Index.cshtml",
-              "RelativeDocumentMoniker": "DrinkCatalog\\Areas\\Admin\\Views\\Brand\\Index.cshtml",
-              "ToolTip": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\Areas\\Admin\\Views\\Brand\\Index.cshtml",
-              "RelativeToolTip": "DrinkCatalog\\Areas\\Admin\\Views\\Brand\\Index.cshtml",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-10T11:46:57.948Z"
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\Areas\\Customer\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "DrinkCatalog\\Areas\\Customer\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\Areas\\Customer\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "DrinkCatalog\\Areas\\Customer\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAAHoAAAAAAAAAAAAIwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T17:11:48.294Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\Areas\\Admin\\Views\\Drink\\Index.cshtml",
-              "RelativeDocumentMoniker": "DrinkCatalog\\Areas\\Admin\\Views\\Drink\\Index.cshtml",
-              "ToolTip": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\Areas\\Admin\\Views\\Drink\\Index.cshtml",
-              "RelativeToolTip": "DrinkCatalog\\Areas\\Admin\\Views\\Drink\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-10T11:46:54.85Z",
+              "DocumentIndex": 7,
+              "Title": "DrinkImportService.cs",
+              "DocumentMoniker": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\Services\\DrinkImportService.cs",
+              "RelativeDocumentMoniker": "DrinkCatalog\\Services\\DrinkImportService.cs",
+              "ToolTip": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\Services\\DrinkImportService.cs",
+              "RelativeToolTip": "DrinkCatalog\\Services\\DrinkImportService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC8AAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T17:08:37.004Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\Program.cs",
+              "RelativeDocumentMoniker": "DrinkCatalog\\Program.cs",
+              "ToolTip": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\Program.cs",
+              "RelativeToolTip": "DrinkCatalog\\Program.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAABYAAABGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T16:18:40.545Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BrandService.cs",
+              "DocumentMoniker": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\Services\\BrandService.cs",
+              "RelativeDocumentMoniker": "DrinkCatalog\\Services\\BrandService.cs",
+              "ToolTip": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\Services\\BrandService.cs",
+              "RelativeToolTip": "DrinkCatalog\\Services\\BrandService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T16:09:27.023Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DrinkController.cs",
+              "DocumentMoniker": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\Areas\\Admin\\Controllers\\DrinkController.cs",
+              "RelativeDocumentMoniker": "DrinkCatalog\\Areas\\Admin\\Controllers\\DrinkController.cs",
+              "ToolTip": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\Areas\\Admin\\Controllers\\DrinkController.cs",
+              "RelativeToolTip": "DrinkCatalog\\Areas\\Admin\\Controllers\\DrinkController.cs",
+              "ViewState": "AQIAADsAAAAAAAAAAAAIwAEAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T16:04:13.316Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DrinkService.cs",
+              "DocumentMoniker": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\Services\\DrinkService.cs",
+              "RelativeDocumentMoniker": "DrinkCatalog\\Services\\DrinkService.cs",
+              "ToolTip": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\Services\\DrinkService.cs",
+              "RelativeToolTip": "DrinkCatalog\\Services\\DrinkService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACwAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T16:02:35.666Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ImageService.cs",
+              "DocumentMoniker": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\Services\\ImageService.cs",
+              "RelativeDocumentMoniker": "DrinkCatalog\\Services\\ImageService.cs",
+              "ToolTip": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\Services\\ImageService.cs",
+              "RelativeToolTip": "DrinkCatalog\\Services\\ImageService.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAgwBQAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T16:03:41.554Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "IImageService.cs",
+              "DocumentMoniker": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\Services\\IService\\IImageService.cs",
+              "RelativeDocumentMoniker": "DrinkCatalog\\Services\\IService\\IImageService.cs",
+              "ToolTip": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\Services\\IService\\IImageService.cs",
+              "RelativeToolTip": "DrinkCatalog\\Services\\IService\\IImageService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T16:01:54.285Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "IDrinkService.cs",
+              "DocumentMoniker": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\Services\\IService\\IDrinkService.cs",
+              "RelativeDocumentMoniker": "DrinkCatalog\\Services\\IService\\IDrinkService.cs",
+              "ToolTip": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\Services\\IService\\IDrinkService.cs",
+              "RelativeToolTip": "DrinkCatalog\\Services\\IService\\IDrinkService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T16:01:43.668Z",
               "EditorCaption": ""
             }
           ]

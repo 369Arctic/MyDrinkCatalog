@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
+using DrinkCatalog.Services.IService;
 using System.Security.Claims;
 
 namespace DrinkCatalog.Areas.Admin.Controllers
@@ -8,6 +9,12 @@ namespace DrinkCatalog.Areas.Admin.Controllers
     [Area("Admin")]
     public class AccountController : Controller
     {
+        private readonly IAuthService _authService;
+
+        public AccountController(IAuthService authService)
+        {
+            _authService = authService;
+        }
         [HttpGet]
         public IActionResult Login()
         {
@@ -15,37 +22,22 @@ namespace DrinkCatalog.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login(string username, string password)
+        public async Task<IActionResult> Login(string username, string password)
         {
-            // Простейшая проверка логина и пароля
-            if (username == "admin" && password == "admin123")
+            if (_authService.Authenticate(username, password))
             {
-                
-                var claims = new List<Claim>
-                {
-                    new Claim(ClaimTypes.Name, username),
-                    new Claim(ClaimTypes.Role, "Admin") // Устанавливаем роль Admin
-                };
-
-                var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-                var principal = new ClaimsPrincipal(identity);
-
-                
-                HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
-
-               
+                var principal = _authService.CreatePrincipal(username);
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
                 return RedirectToAction("Index", "Home", new { area = "Customer" });
             }
 
-            // Если логин или пароль неверны
             ModelState.AddModelError("", "Неправильный логин или пароль");
             return View();
         }
 
-        public IActionResult Logout()
+        public async Task<IActionResult> Logout()
         {
-            // Выполняем выход пользователя
-            HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Login");
         }
     }

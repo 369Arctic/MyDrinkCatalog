@@ -2,6 +2,7 @@ using DrinkCatalog.Data;
 using DrinkCatalog.Data.Repository;
 using DrinkCatalog.Data.Repository.IRepository;
 using DrinkCatalog.Services;
+using DrinkCatalog.Services.IService;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,6 +17,13 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<ICoinService, CoinService>();
+builder.Services.AddScoped<IBrandService, BrandService>();
+builder.Services.AddScoped<IDrinkImportService, DrinkImportService>();
+builder.Services.AddScoped<IDrinkService, DrinkService>();
+builder.Services.AddScoped<IImageService, ImageService>();
+
 builder.Services.AddScoped<DrinkImportService>();
 builder.Services.AddHttpContextAccessor();
 

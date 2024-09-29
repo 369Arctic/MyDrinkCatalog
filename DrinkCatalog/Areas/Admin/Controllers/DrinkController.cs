@@ -1,52 +1,48 @@
 ﻿using DrinkCatalog.Data.Models;
 using DrinkCatalog.Data.Models.ViewModels;
-using DrinkCatalog.Data.Repository.IRepository;
-using DrinkCatalog.Services;
-using Microsoft.AspNetCore.Authorization;
+using DrinkCatalog.Services.IService;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.Formats;
-using SixLabors.ImageSharp.Formats.Bmp;
-using SixLabors.ImageSharp.Formats.Jpeg;
-using SixLabors.ImageSharp.Formats.Png;
-using SixLabors.ImageSharp.Processing;
 
 namespace DrinkCatalog.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]
     public class DrinkController : Controller
     {
-        private readonly IUnitOfWork _unitOfWork;
-        private readonly IWebHostEnvironment _webHostEnvironment;
-        private readonly DrinkImportService _drinkImportService;
-        public DrinkController(IUnitOfWork unitOfWork, IWebHostEnvironment webHostEnvironment, DrinkImportService drinkImportService)
+        private readonly IDrinkImportService _drinkImportService;
+        private readonly IDrinkService _drinkService;
+        private readonly IImageService _imageService;
+        private readonly IBrandService _brandService;
+
+        public DrinkController(IDrinkService drinkService, IImageService imageService, IDrinkImportService drinkImportService, IBrandService brandService)
         {
-            _unitOfWork = unitOfWork;
-            _webHostEnvironment = webHostEnvironment;
+            _drinkService = drinkService;
+            _imageService = imageService;
             _drinkImportService = drinkImportService;
+            _brandService = brandService;
         }
 
 
         public IActionResult Index()
         {
-            var drinks = _unitOfWork.Drinks.GetAll(includeProperties: "Brand").ToList();
+            var drinks = _drinkService.GetAllDrinks();
             return View(drinks);
         }
 
         public IActionResult CreateDrink()
         {
-            IEnumerable<SelectListItem> BrandList = _unitOfWork.Brands.
-               GetAll().Select(u => new SelectListItem
-               {
-                   Text = u.Name,
-                   Value = u.BrandId.ToString()
-               });
+            IEnumerable<SelectListItem> brandList = _brandService.GetAllBrands()
+                    .Select(u => new SelectListItem
+                    {
+                        Text = u.Name,
+                        Value = u.BrandId.ToString()
+                    });
+
             DrinkVM drinkVM = new()
             {
                 Drink = new Drink(),
-                BrandList = BrandList
+                BrandList = brandList
             };
             return View(drinkVM);
         }
@@ -58,39 +54,14 @@ namespace DrinkCatalog.Areas.Admin.Controllers
             {
                 if (file != null)
                 {
-                    string fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
-                    string drinkPath = Path.Combine(_webHostEnvironment.WebRootPath, @"Img\Drink");
-
-                    if (!Directory.Exists(drinkPath))
-                    {
-                        Directory.CreateDirectory(drinkPath);
-                    }
-
-                    using (var image = Image.Load(file.OpenReadStream()))
-                    {
-                        int targetWidth = 300;
-                        int targetHeight = 300;
-
-                        image.Mutate(x => x.Resize(targetWidth, targetHeight));
-
-                        var encoder = GetEncoder(file.FileName);
-
-                        string fullPath = Path.Combine(drinkPath, fileName);
-                        using (var fileStream = new FileStream(fullPath, FileMode.Create))
-                        {
-                            image.Save(fileStream, encoder);
-                        }
-                    }
-
-                    drinkVM.Drink.ImageUrl = @"\Img\Drink\" + fileName;
+                    drinkVM.Drink.ImageUrl = _imageService.SaveImage(file, @"Img\Drink");
                 }
                 else
                 {
                     TempData["ErrorMessage"] = "Добавьте изображение";
-                    return View();
+                    return View(drinkVM);
                 }
-                _unitOfWork.Drinks.Add(drinkVM.Drink);
-                _unitOfWork.Save();
+                _drinkService.AddDrink(drinkVM.Drink);
                 TempData["SuccessMessage"] = "Напиток успешно создан";
                 return RedirectToAction("Index");
             }
@@ -99,21 +70,19 @@ namespace DrinkCatalog.Areas.Admin.Controllers
 
         public IActionResult EditDrink(int id)
         {
-            IEnumerable<SelectListItem> BrandList = _unitOfWork.Brands.
-                GetAll().Select(u => new SelectListItem
-                {
-                    Text = u.Name,
-                    Value = u.BrandId.ToString()
-                });
-            DrinkVM drinkVM = new()
+            IEnumerable<SelectListItem> brandList = _brandService.GetAllBrands()
+                   .Select(u => new SelectListItem
+                   {
+                       Text = u.Name,
+                       Value = u.BrandId.ToString()
+                   });
+
+            var drinkVM = new DrinkVM
             {
-                Drink = new Drink(),
-                BrandList = BrandList
+                Drink = _drinkService.GetDrinkById(id),
+                BrandList = brandList
             };
-
-            drinkVM.Drink = _unitOfWork.Drinks.GetById(u => u.DrinkId == id);
             return View(drinkVM);
-
         }
 
 
@@ -124,39 +93,10 @@ namespace DrinkCatalog.Areas.Admin.Controllers
             {
                 if (file != null)
                 {
-                    string fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
-                    string drinkPath = Path.Combine(_webHostEnvironment.WebRootPath, @"Img\Drink");
-
-                    // Если есть старое изображение, то удаляем его
-                    if (!string.IsNullOrEmpty(drinkVM.Drink.ImageUrl))
-                    {
-
-                        var oldImagePath = Path.Combine(_webHostEnvironment.WebRootPath, drinkVM.Drink.ImageUrl.TrimStart('\\'));
-                        if (System.IO.File.Exists(oldImagePath))
-                        {
-                            System.IO.File.Delete(oldImagePath);
-                        }
-                    }
-                    using (var image = Image.Load(file.OpenReadStream()))
-                    {
-                        int targetWidth = 300;
-                        int targetHeight = 300;
-
-                        image.Mutate(x => x.Resize(targetWidth, targetHeight));
-
-                        var encoder = GetEncoder(file.FileName);
-
-                        string fullPath = Path.Combine(drinkPath, fileName);
-                        using (var fileStream = new FileStream(fullPath, FileMode.Create))
-                        {
-                            image.Save(fileStream, encoder);
-                        }
-                    }
-
-                    drinkVM.Drink.ImageUrl = @"\Img\Drink\" + fileName;
+                    _imageService.DeleteImage(drinkVM.Drink.ImageUrl);
+                    drinkVM.Drink.ImageUrl = _imageService.SaveImage(file, @"Img\Drink");
                 }
-                _unitOfWork.Drinks.Update(drinkVM.Drink);
-                _unitOfWork.Save();
+                _drinkService.UpdateDrink(drinkVM.Drink);
                 TempData["SuccessMessage"] = "Напиток успешно изменен";
                 return RedirectToAction("Index");
             }
@@ -164,13 +104,13 @@ namespace DrinkCatalog.Areas.Admin.Controllers
         }
 
 
-        public IActionResult DeleteDrink(int? id)
+        public IActionResult DeleteDrink(int id)
         {
             if (id == 0 || id == null)
             {
                 return NotFound();
             }
-            var drinkForDelete = _unitOfWork.Drinks.GetById(u => u.DrinkId == id);
+            var drinkForDelete = _drinkService.GetDrinkById(id);
             if (drinkForDelete == null)
             {
                 return NotFound();
@@ -179,15 +119,10 @@ namespace DrinkCatalog.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult DeleteDrink(int id)
+        [ActionName("DeleteDrink")]
+        public IActionResult DeleteDrinkPost(int id)
         {
-            var drinkForDelete = _unitOfWork.Drinks.GetById(u => u.DrinkId == id);
-            if (drinkForDelete == null)
-            {
-                return NotFound();
-            }
-            _unitOfWork.Drinks.Remove(drinkForDelete);
-            _unitOfWork.Save();
+            _drinkService.DeleteDrink(id);
             TempData["SuccessMessage"] = "Напиток успешно удален";
             return RedirectToAction("Index");
         }
@@ -214,25 +149,12 @@ namespace DrinkCatalog.Areas.Admin.Controllers
 
                 foreach (var drink in drinks)
                 {
-                    _unitOfWork.Drinks.Add(drink);
+                    _drinkService.AddDrink(drink);
                 }
-                _unitOfWork.Save();
 
                 TempData["SuccessMessage"] = "Товары успешно импортированы.";
                 return RedirectToAction("Index");
             }
-        }
-
-        private IImageEncoder GetEncoder(string fileName)
-        {
-            string extension = Path.GetExtension(fileName).ToLower();
-            return extension switch
-            {
-                ".png" => new PngEncoder(),
-                ".jpg" or ".jpeg" => new JpegEncoder(),
-                ".bmp" => new BmpEncoder(),
-                _ => throw new NotSupportedException("Unsupported image format"),
-            }; ;
         }
     }
 }

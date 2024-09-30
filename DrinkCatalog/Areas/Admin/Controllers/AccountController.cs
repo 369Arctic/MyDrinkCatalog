@@ -24,6 +24,11 @@ namespace DrinkCatalog.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(string username, string password)
         {
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            {
+                ModelState.AddModelError("", "Имя пользователя и пароль обязательны.");
+                return View();
+            }
             if (_authService.Authenticate(username, password))
             {
                 var principal = _authService.CreatePrincipal(username);

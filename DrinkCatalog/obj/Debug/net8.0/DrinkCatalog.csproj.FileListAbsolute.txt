@@ -646,3 +646,4 @@ D:\Git\MyDrinkCatalog\DrinkCatalog\obj\Debug\net8.0\refint\DrinkCatalog.dll
 D:\Git\MyDrinkCatalog\DrinkCatalog\obj\Debug\net8.0\DrinkCatalog.pdb
 D:\Git\MyDrinkCatalog\DrinkCatalog\obj\Debug\net8.0\DrinkCatalog.genruntimeconfig.cache
 D:\Git\MyDrinkCatalog\DrinkCatalog\obj\Debug\net8.0\ref\DrinkCatalog.dll
+D:\Git\MyDrinkCatalog\DrinkCatalog\bin\Debug\net8.0\libman.json

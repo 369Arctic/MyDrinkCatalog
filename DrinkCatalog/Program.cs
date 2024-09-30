@@ -23,8 +23,14 @@ builder.Services.AddScoped<IBrandService, BrandService>();
 builder.Services.AddScoped<IDrinkImportService, DrinkImportService>();
 builder.Services.AddScoped<IDrinkService, DrinkService>();
 builder.Services.AddScoped<IImageService, ImageService>();
+builder.Services.AddScoped<IPaymentService, PaymentService>();
+builder.Services.AddScoped<ICatalogService, CatalogService>();
+builder.Services.AddScoped<IShoppingCartService, ShoppingCartService>();
 
-builder.Services.AddScoped<DrinkImportService>();
+
+
+
+//builder.Services.AddScoped<DrinkImportService>();
 builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

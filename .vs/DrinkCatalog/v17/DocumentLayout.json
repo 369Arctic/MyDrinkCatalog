@@ -7,16 +7,20 @@
       "RelativeMoniker": "D:0:0:{E8030A11-5FC2-49F2-B2DE-FC81D9FC65A6}|DrinkCatalog\\DrinkCatalog.csproj|solutionrelative:drinkcatalog\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{E8030A11-5FC2-49F2-B2DE-FC81D9FC65A6}|DrinkCatalog\\DrinkCatalog.csproj|d:\\git\\mydrinkcatalog\\drinkcatalog\\libman.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{E8030A11-5FC2-49F2-B2DE-FC81D9FC65A6}|DrinkCatalog\\DrinkCatalog.csproj|solutionrelative:drinkcatalog\\libman.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E8030A11-5FC2-49F2-B2DE-FC81D9FC65A6}|DrinkCatalog\\DrinkCatalog.csproj|d:\\git\\mydrinkcatalog\\drinkcatalog\\areas\\customer\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E8030A11-5FC2-49F2-B2DE-FC81D9FC65A6}|DrinkCatalog\\DrinkCatalog.csproj|solutionrelative:drinkcatalog\\areas\\customer\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E8030A11-5FC2-49F2-B2DE-FC81D9FC65A6}|DrinkCatalog\\DrinkCatalog.csproj|d:\\git\\mydrinkcatalog\\drinkcatalog\\views\\shared\\_notification.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{E8030A11-5FC2-49F2-B2DE-FC81D9FC65A6}|DrinkCatalog\\DrinkCatalog.csproj|solutionrelative:drinkcatalog\\views\\shared\\_notification.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E8030A11-5FC2-49F2-B2DE-FC81D9FC65A6}|DrinkCatalog\\DrinkCatalog.csproj|d:\\git\\mydrinkcatalog\\drinkcatalog\\areas\\customer\\views\\shoppingcart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{E8030A11-5FC2-49F2-B2DE-FC81D9FC65A6}|DrinkCatalog\\DrinkCatalog.csproj|solutionrelative:drinkcatalog\\areas\\customer\\views\\shoppingcart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E8030A11-5FC2-49F2-B2DE-FC81D9FC65A6}|DrinkCatalog\\DrinkCatalog.csproj|d:\\git\\mydrinkcatalog\\drinkcatalog\\areas\\customer\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E8030A11-5FC2-49F2-B2DE-FC81D9FC65A6}|DrinkCatalog\\DrinkCatalog.csproj|solutionrelative:drinkcatalog\\areas\\customer\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,15 +30,28 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "libman.json",
+              "DocumentMoniker": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\libman.json",
+              "RelativeDocumentMoniker": "DrinkCatalog\\libman.json",
+              "ToolTip": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\libman.json",
+              "RelativeToolTip": "DrinkCatalog\\libman.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAwBgAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-09-30T13:22:11.192Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "_Notification.cshtml",
               "DocumentMoniker": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\Views\\Shared\\_Notification.cshtml",
               "RelativeDocumentMoniker": "DrinkCatalog\\Views\\Shared\\_Notification.cshtml",
@@ -52,14 +69,14 @@
               "RelativeDocumentMoniker": "DrinkCatalog\\Views\\Shared\\_Layout.cshtml",
               "ToolTip": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "DrinkCatalog\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAADIAAAAAAAAAAAAQwE0AAAAHAAAA",
+              "ViewState": "AQIAADEAAAAAAAAAAAAQwE8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-09-30T12:56:33.502Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\Areas\\Customer\\Views\\ShoppingCart\\Index.cshtml",
               "RelativeDocumentMoniker": "DrinkCatalog\\Areas\\Customer\\Views\\ShoppingCart\\Index.cshtml",
@@ -71,15 +88,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\Areas\\Customer\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "DrinkCatalog\\Areas\\Customer\\Views\\Home\\Index.cshtml",
               "ToolTip": "D:\\Git\\MyDrinkCatalog\\DrinkCatalog\\Areas\\Customer\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "DrinkCatalog\\Areas\\Customer\\Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAAEAAAAAAAAAAAAAUwFkAAAA8AAAA",
+              "ViewState": "AQIAADsAAAAAAAAAAAAEwE0AAABiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-30T12:53:37.361Z"
+              "WhenOpened": "2024-09-30T12:53:37.361Z",
+              "EditorCaption": ""
             }
           ]
         }
